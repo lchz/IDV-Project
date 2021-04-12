@@ -5,7 +5,7 @@ from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 
 app = dash.Dash(__name__)
-
+server = app.server
 
 app.layout = html.Div([
     html.P("Color:"),
