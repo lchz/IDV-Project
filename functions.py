@@ -13,13 +13,13 @@ def display_map():
         locationmode='country names',
         locations = df['Country'],
         z = df['Count'],
-        text = df['Country'],
+        hovertemplate = df['Hover_text'],
         colorscale= 'YlGnBu',
         autocolorscale=False,
         reversescale=False,
         marker_line_color='darkgray',
         marker_line_width=0.5,
-        colorbar_title = 'Count'
+        colorbar_title = 'University count'
     ))
 
     fig.update_layout(
@@ -35,19 +35,20 @@ def display_map():
 
 def update_country(country):
     df = pd.read_csv('count_by_country.csv')
-    # count = df[df['Country']==country]['Count'].values[0]
+    hover = df[df['Country']==country]['Hover_text']
 
     fig = go.Figure(data=go.Choropleth(
         locationmode='country names',
         locations = [country],
         z = df['Count'],
         text = country,
+        hovertemplate = hover,
         colorscale= 'YlGnBu',
         autocolorscale=False,
         reversescale=False,
         marker_line_color='darkgray',
         marker_line_width=0.5,
-        colorbar_title = 'Count'
+        colorbar_title = 'University count'
     ))
 
     fig.update_layout(

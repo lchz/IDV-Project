@@ -1,83 +1,83 @@
-Country,Count
-Argentina,13
-Australia,35
-Austria,8
-Azerbaijan,1
-Bahrain,1
-Bangladesh,2
-Belarus,2
-Belgium,8
-Brazil,19
-Brunei,2
-Bulgaria,1
-Canada,26
-Chile,11
-China,42
-Colombia,12
-Costa Rica,3
-Croatia,1
-Cuba,1
-Czech Republic,9
-Denmark,5
-Ecuador,4
-Egypt,5
-Estonia,3
-Finland,9
-France,31
-Germany,46
-Greece,6
-Hong Kong,7
-Hungary,6
-India,24
-Indonesia,9
-Iran,6
-Iraq,3
-Ireland,8
-Israel,6
-Italy,34
-Japan,41
-Jordan,4
-Kazakhstan,10
-Kuwait,1
-Latvia,3
-Lebanon,7
-Lithuania,4
-Macau,1
-Malaysia,20
-Mexico,13
-Netherlands,13
-New Zealand,8
-Norway,4
-Oman,1
-Pakistan,7
-Panama,1
-Paraguay,1
-Peru,3
-Philippines,4
-Poland,16
-Portugal,7
-Puerto Rico,1
-Qatar,1
-Romania,2
-Russia,25
-Saudi Arabia,7
-Serbia,1
-Singapore,3
-Slovakia,3
-Slovenia,2
-South Africa,8
-South Korea,30
-Spain,27
-Sri Lanka,1
-Sweden,8
-Switzerland,9
-Taiwan,16
-Thailand,8
-Turkey,9
-Ukraine,6
-United Arab Emirates,8
-United Kingdom,84
-United States,157
-Uruguay,2
-Venezuela,4
-Vietnam,2
+Country,Count,Ave_score,Hover_text
+Argentina,13,23.511538461538464,Argentina<br><br>Universities: 13<br>Average score: 23.51
+Australia,35,38.76571428571428,Australia<br><br>Universities: 35<br>Average score: 38.77
+Austria,8,30.94375,Austria<br><br>Universities: 8<br>Average score: 30.94
+Azerbaijan,1,11.55,Azerbaijan<br><br>Universities: 1<br>Average score: 11.55
+Bahrain,1,11.55,Bahrain<br><br>Universities: 1<br>Average score: 11.55
+Bangladesh,2,11.55,Bangladesh<br><br>Universities: 2<br>Average score: 11.55
+Belarus,2,21.275,Belarus<br><br>Universities: 2<br>Average score: 21.27
+Belgium,8,41.9,Belgium<br><br>Universities: 8<br>Average score: 41.90
+Brazil,19,19.518421052631584,Brazil<br><br>Universities: 19<br>Average score: 19.52
+Brunei,2,31.75,Brunei<br><br>Universities: 2<br>Average score: 31.75
+Bulgaria,1,14.649999999999999,Bulgaria<br><br>Universities: 1<br>Average score: 14.65
+Canada,26,36.294230769230765,Canada<br><br>Universities: 26<br>Average score: 36.29
+Chile,11,21.06363636363637,Chile<br><br>Universities: 11<br>Average score: 21.06
+China,42,31.37142857142859,China<br><br>Universities: 42<br>Average score: 31.37
+Colombia,12,20.49166666666667,Colombia<br><br>Universities: 12<br>Average score: 20.49
+Costa Rica,3,15.416666666666666,Costa Rica<br><br>Universities: 3<br>Average score: 15.42
+Croatia,1,14.649999999999999,Croatia<br><br>Universities: 1<br>Average score: 14.65
+Cuba,1,23.8,Cuba<br><br>Universities: 1<br>Average score: 23.80
+Czech Republic,9,20.672222222222228,Czech Republic<br><br>Universities: 9<br>Average score: 20.67
+Denmark,5,46.92,Denmark<br><br>Universities: 5<br>Average score: 46.92
+Ecuador,4,12.325,Ecuador<br><br>Universities: 4<br>Average score: 12.32
+Egypt,5,17.13,Egypt<br><br>Universities: 5<br>Average score: 17.13
+Estonia,3,21.766666666666666,Estonia<br><br>Universities: 3<br>Average score: 21.77
+Finland,9,33.92777777777778,Finland<br><br>Universities: 9<br>Average score: 33.93
+France,31,29.683870967741917,France<br><br>Universities: 31<br>Average score: 29.68
+Germany,46,32.84239130434782,Germany<br><br>Universities: 46<br>Average score: 32.84
+Greece,6,17.750000000000004,Greece<br><br>Universities: 6<br>Average score: 17.75
+Hong Kong,7,61.87142857142856,Hong Kong<br><br>Universities: 7<br>Average score: 61.87
+Hungary,6,16.891666666666666,Hungary<br><br>Universities: 6<br>Average score: 16.89
+India,24,21.933333333333334,India<br><br>Universities: 24<br>Average score: 21.93
+Indonesia,9,20.71111111111112,Indonesia<br><br>Universities: 9<br>Average score: 20.71
+Iran,6,19.03333333333333,Iran<br><br>Universities: 6<br>Average score: 19.03
+Iraq,3,13.0,Iraq<br><br>Universities: 3<br>Average score: 13.00
+Ireland,8,31.85625,Ireland<br><br>Universities: 8<br>Average score: 31.86
+Israel,6,32.208333333333336,Israel<br><br>Universities: 6<br>Average score: 32.21
+Italy,34,22.8955882352941,Italy<br><br>Universities: 34<br>Average score: 22.90
+Japan,41,29.35609756097561,Japan<br><br>Universities: 41<br>Average score: 29.36
+Jordan,4,15.0,Jordan<br><br>Universities: 4<br>Average score: 15.00
+Kazakhstan,10,20.425000000000004,Kazakhstan<br><br>Universities: 10<br>Average score: 20.43
+Kuwait,1,11.55,Kuwait<br><br>Universities: 1<br>Average score: 11.55
+Latvia,3,13.0,Latvia<br><br>Universities: 3<br>Average score: 13.00
+Lebanon,7,20.528571428571432,Lebanon<br><br>Universities: 7<br>Average score: 20.53
+Lithuania,4,18.025,Lithuania<br><br>Universities: 4<br>Average score: 18.02
+Macau,1,28.7,Macau<br><br>Universities: 1<br>Average score: 28.70
+Malaysia,20,25.3575,Malaysia<br><br>Universities: 20<br>Average score: 25.36
+Mexico,13,21.330769230769235,Mexico<br><br>Universities: 13<br>Average score: 21.33
+Netherlands,13,51.130769230769225,Netherlands<br><br>Universities: 13<br>Average score: 51.13
+New Zealand,8,40.037499999999994,New Zealand<br><br>Universities: 8<br>Average score: 40.04
+Norway,4,40.475,Norway<br><br>Universities: 4<br>Average score: 40.48
+Oman,1,28.9,Oman<br><br>Universities: 1<br>Average score: 28.90
+Pakistan,7,18.728571428571428,Pakistan<br><br>Universities: 7<br>Average score: 18.73
+Panama,1,11.55,Panama<br><br>Universities: 1<br>Average score: 11.55
+Paraguay,1,11.55,Paraguay<br><br>Universities: 1<br>Average score: 11.55
+Peru,3,16.03333333333333,Peru<br><br>Universities: 3<br>Average score: 16.03
+Philippines,4,18.287499999999998,Philippines<br><br>Universities: 4<br>Average score: 18.29
+Poland,16,14.734375000000005,Poland<br><br>Universities: 16<br>Average score: 14.73
+Portugal,7,24.128571428571433,Portugal<br><br>Universities: 7<br>Average score: 24.13
+Puerto Rico,1,11.55,Puerto Rico<br><br>Universities: 1<br>Average score: 11.55
+Qatar,1,35.8,Qatar<br><br>Universities: 1<br>Average score: 35.80
+Romania,2,11.55,Romania<br><br>Universities: 2<br>Average score: 11.55
+Russia,25,27.659999999999997,Russia<br><br>Universities: 25<br>Average score: 27.66
+Saudi Arabia,7,29.34285714285715,Saudi Arabia<br><br>Universities: 7<br>Average score: 29.34
+Serbia,1,11.55,Serbia<br><br>Universities: 1<br>Average score: 11.55
+Singapore,3,69.5,Singapore<br><br>Universities: 3<br>Average score: 69.50
+Slovakia,3,13.616666666666665,Slovakia<br><br>Universities: 3<br>Average score: 13.62
+Slovenia,2,17.525,Slovenia<br><br>Universities: 2<br>Average score: 17.52
+South Africa,8,22.431250000000006,South Africa<br><br>Universities: 8<br>Average score: 22.43
+South Korea,30,32.191666666666656,South Korea<br><br>Universities: 30<br>Average score: 32.19
+Spain,27,25.616666666666653,Spain<br><br>Universities: 27<br>Average score: 25.62
+Sri Lanka,1,11.55,Sri Lanka<br><br>Universities: 1<br>Average score: 11.55
+Sweden,8,47.337500000000006,Sweden<br><br>Universities: 8<br>Average score: 47.34
+Switzerland,9,56.62777777777778,Switzerland<br><br>Universities: 9<br>Average score: 56.63
+Taiwan,16,31.19375,Taiwan<br><br>Universities: 16<br>Average score: 31.19
+Thailand,8,19.575,Thailand<br><br>Universities: 8<br>Average score: 19.57
+Turkey,9,18.027777777777782,Turkey<br><br>Universities: 9<br>Average score: 18.03
+Ukraine,6,18.358333333333334,Ukraine<br><br>Universities: 6<br>Average score: 18.36
+United Arab Emirates,8,22.9375,United Arab Emirates<br><br>Universities: 8<br>Average score: 22.94
+United Kingdom,84,36.5696428571429,United Kingdom<br><br>Universities: 84<br>Average score: 36.57
+United States,157,36.15445859872613,United States<br><br>Universities: 157<br>Average score: 36.15
+Uruguay,2,17.925,Uruguay<br><br>Universities: 2<br>Average score: 17.93
+Venezuela,4,12.6375,Venezuela<br><br>Universities: 4<br>Average score: 12.64
+Vietnam,2,13.725000000000001,Vietnam<br><br>Universities: 2<br>Average score: 13.73

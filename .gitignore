@@ -1,5 +1,4 @@
 env
-prepare.ipynb
 .vscode
 example.py
 __pycache__
