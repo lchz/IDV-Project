@@ -3,12 +3,13 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 
+df = pd.read_csv('./count_by_country.csv')
+
+
 def collect_countries():
-    df = pd.read_csv('./count_by_country.csv')
     return df['Country']
 
 def display_map():
-    df = pd.read_csv('count_by_country.csv')
     fig = go.Figure(data=go.Choropleth(
         locationmode='country names',
         locations = df['Country'],
@@ -34,7 +35,6 @@ def display_map():
     return fig
 
 def update_country(country):
-    df = pd.read_csv('count_by_country.csv')
     hover = df[df['Country']==country]['Hover_text']
 
     fig = go.Figure(data=go.Choropleth(
@@ -62,4 +62,21 @@ def update_country(country):
 
     return fig
 
-# print(display_country('China'))
+
+
+def get_clicked(location):
+    info = df[df['Country']==location]
+
+    fig = go.Figure(data=[
+                    go.Table(
+                        header=dict(values=info.columns.values[:3]),
+                        cells=dict(values=[[info.iloc[0][0]], [info.iloc[0][1]], [info.iloc[0][2]]]))
+                    ])
+
+    fig.update_layout(
+        title = {
+            'text': 'Table'
+    })
+
+    return fig
+

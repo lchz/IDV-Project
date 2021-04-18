@@ -24,7 +24,7 @@ app.layout = html.Div([
         placeholder='Select a country',
     ),
     dcc.Graph(id="graph1"),
-    
+    dcc.Graph(id="highlighted")
 ])
 
 # (id, type)
@@ -35,6 +35,14 @@ def display_map(country):
 
     return f.display_map()
 
+@app.callback(Output('highlighted', 'figure'), [Input('graph1', 'clickData')])
+def clicked_figure(clickData):    
+    if clickData is not None:            
+        location = clickData['points'][0]['location']
+        
+        return f.get_clicked(location)
+
+    return f.display_map()
 
 
 if __name__ == "__main__":
