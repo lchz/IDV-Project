@@ -9,7 +9,7 @@ import functions as f
 app = dash.Dash(__name__)
 server = app.server
 
-
+print('Starting...')
 ## Layout
 app.layout = html.Div([
     # html.P("Color:"),
@@ -24,25 +24,42 @@ app.layout = html.Div([
         placeholder='Select a country',
     ),
     dcc.Graph(id="graph1"),
-    dcc.Graph(id="highlighted")
+    # dcc.Graph(id="graph2"),
+    dcc.Graph(id="table"),
+
 ])
 
 # (id, type)
-@app.callback(Output("graph1", "figure"), [Input("country-dropdown", "value")])
-def display_map(country):
+@app.callback(Output("graph1", "figure"),Input("country-dropdown", "value"))
+def dropdown_map(country):
+    return f.display_map(country)
+
+
+@app.callback(Output('table', 'figure'), 
+              Input('graph1', 'clickData'),
+              Input("country-dropdown", "value"))
+def country_to_table(clickData, country):
     if country:
-        return f.update_country(country)
-
-    return f.display_map()
-
-@app.callback(Output('highlighted', 'figure'), [Input('graph1', 'clickData')])
-def clicked_figure(clickData):    
-    if clickData is not None:            
+        location = country
+    elif clickData is not None:
         location = clickData['points'][0]['location']
         
-        return f.get_clicked(location)
+    return f.display_table(location)
 
-    return f.display_map()
+
+# @app.callback(Output('graph2', 'figure'), 
+#             #   Output('graph1', 'figure'),
+#               Input('graph1', 'clickData'))
+# def test(clickData):    
+#     # print('highlighting...')
+#     if clickData is not None:      
+#         location = clickData['points'][0]['location']
+#     else:
+#         location = None
+        
+#     return f.display_map(location)
+
+#     # return f.display_map()
 
 
 if __name__ == "__main__":
