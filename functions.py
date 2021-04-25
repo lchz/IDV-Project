@@ -6,26 +6,23 @@ import plotly.express as px
 
 df = pd.read_csv('./count_by_country.csv')
 df_all = pd.read_csv('./university_ranking_2020.csv')
-rowColor1 = 'floralwhite'
-rowColor2 = 'ghostwhite'
 
+### Table headers and row colors ###
+headers = list(df_all.columns.values)
+headers.insert(0, ' ')
+rowColor1 = 'linen'
+rowColor2 = 'white'
 
 def collect_countries():
     return df['Country']
 
-def display_map(country=None, location=None):
-    if country:
-        hover = df[df['Country']==country]['Hover_text']
-        locations = [country]
-    else:
-        hover = df['Hover_text']
-        locations = df['Country']
+def display_map(click_country=None, z=0):
 
     fig = go.Figure(data=go.Choropleth(
         locationmode='country names',
-        locations = locations,
+        locations = df['Country'],
         z = df['Count'],
-        hovertemplate = hover,
+        hovertemplate = df['Hover_text'],
         colorscale= 'YlGnBu',
         autocolorscale=False,
         reversescale=False,
@@ -33,6 +30,23 @@ def display_map(country=None, location=None):
         marker_line_width=0.5,
         colorbar_title = 'University count'
     ))
+
+    ### Highlight the clicked / selected (dropdown) country ###
+    if click_country:
+        highlighted = go.Choropleth(
+            locationmode='country names',
+            # z = df['Count'],
+            # z = [0],
+            z = [z],
+            locations=[click_country],
+            hovertemplate = df[df['Country']==click_country]['Hover_text'],
+            colorscale= 'Portland',
+            autocolorscale=False,
+            marker_line_color='Blue',
+            marker_line_width=2,
+            showscale = False,
+        )
+        fig.add_trace(highlighted)
 
     fig.update_layout(
         title = {
@@ -47,20 +61,30 @@ def display_map(country=None, location=None):
 
 
 
-def display_table(location):
+def display_table(location=None):
     if not location:
-        fig = go.Figure()
+        fig = go.Figure(data=[
+                go.Table(
+                    header=dict(values=headers,
+                                align=['center','center','center','left','center','center'],
+                                fill_color='lightsteelblue')
+                    )
+                ])
+
+        fig.update_layout(
+            title = {
+                'text': f'Choose a country for more details'
+        })
         
     else:
         info = df_all[df_all['Country']==location]
-        headers = list(info.columns.values)
-        headers.insert(0, ' ')
         length = info.shape[0]
 
         fig = go.Figure(data=[
                         go.Table(
                             header=dict(values=headers,
-                                        align=['center','center','center','left','center','center']),
+                                        align=['center','center','center','left','center','center'],
+                                        fill_color='lightsteelblue'),
                             cells=dict(
                                 values=[list(range(length+1))[1:],info['Rank in 2020'],info['Rank in 2019'], info['Institution Name'], info['Country'], info['Overall Score']],
                                         align=['center','center','center','left','center','center'],
@@ -68,10 +92,9 @@ def display_table(location):
                                 ))
                         ])
 
-    fig.update_layout(
-        title = {
-            'text': f'Universities in {location}'
-    })
+        fig.update_layout(
+            title = {
+                'text': f'Universities in {location}'
+        })
 
     return fig
-

@@ -1,7 +1,8 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
+from dash.exceptions import PreventUpdate
 
 import functions as f
 
@@ -10,10 +11,9 @@ app = dash.Dash(__name__)
 server = app.server
 
 print('Starting...')
+
 ## Layout
 app.layout = html.Div([
-    # html.P("Color:"),
-    # dcc.Graph(figure=f.display_map()),
 
     dcc.Dropdown(
         id="country-dropdown",
@@ -23,43 +23,44 @@ app.layout = html.Div([
         ],
         placeholder='Select a country',
     ),
-    dcc.Graph(id="graph1"),
-    # dcc.Graph(id="graph2"),
-    dcc.Graph(id="table"),
 
+    dcc.Graph(id="graph1"),
+    dcc.Graph(id="table"),
+    dcc.Store(id='previous_click'),
 ])
 
-# (id, type)
-@app.callback(Output("graph1", "figure"),Input("country-dropdown", "value"))
-def dropdown_map(country):
-    return f.display_map(country)
+@app.callback(Output('graph1', 'figure'), 
+                Output('table', 'figure'),
+                Output('previous_click', 'data'),
+                Input('country-dropdown', 'value'),
+                Input('graph1', 'clickData'),
+                Input('previous_click', 'data'))
+def update_map_and_table(dropdown_country, clickData, previous_click):
+    context = dash.callback_context
 
+    if context.triggered:
+        update_id = context.triggered[0]['prop_id'].split('.')[0]
 
-@app.callback(Output('table', 'figure'), 
-              Input('graph1', 'clickData'),
-              Input("country-dropdown", "value"))
-def country_to_table(clickData, country):
-    if country:
-        location = country
-    elif clickData is not None:
-        location = clickData['points'][0]['location']
-        
-    return f.display_table(location)
+        if update_id == 'country-dropdown':
+            return (f.display_map(dropdown_country), 
+                    f.display_table(dropdown_country),
+                    {})
 
+        elif update_id == 'graph1':
+            click = clickData['points'][0]['location']
 
-# @app.callback(Output('graph2', 'figure'), 
-#             #   Output('graph1', 'figure'),
-#               Input('graph1', 'clickData'))
-# def test(clickData):    
-#     # print('highlighting...')
-#     if clickData is not None:      
-#         location = clickData['points'][0]['location']
-#     else:
-#         location = None
-        
-#     return f.display_map(location)
+            if not previous_click or click != previous_click['pre']:
+                return (f.display_map(click), 
+                        f.display_table(click),
+                        {'pre': click})
+            elif click == previous_click['pre']:
+                return (f.display_map(), 
+                        f.display_table(),
+                        {})
 
-#     # return f.display_map()
+    return (f.display_map(),
+            f.display_table(),
+            {})
 
 
 if __name__ == "__main__":
