@@ -1,33 +1,50 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output, State
-from dash.exceptions import PreventUpdate
+from dash.dependencies import Input, Output
+
+# import dash_bootstrap_components as dbc
 
 import functions as f
 
 ## Initiate the app ###
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets) 
+
 app = dash.Dash(__name__)
 server = app.server
 
 print('Starting...')
 
 ## Layout
-app.layout = html.Div([
-
-    dcc.Dropdown(
-        id="country-dropdown",
-        options=[
-            {'label': country, 'value': country}
-            for country in f.collect_countries()
-        ],
-        placeholder='Select a country',
+app.layout = html.Div(style={'backgroudColor':'#111111'}, children=[
+    html.H1(
+        children='QS University Ranking in 2020',
+        style={'textAlign': 'center'}
     ),
 
-    dcc.Graph(id="graph1"),
-    dcc.Graph(id="table"),
+    html.Div(children=[
+        dcc.Dropdown(
+            id="country-dropdown",
+            options=[
+                {'label': country, 'value': country}
+                for country in f.collect_countries()
+            ],
+            placeholder='Select a country',
+        ),
+    ], style={'marginLeft':300, 'marginTop':50, 'width':'50%'}),
+    
+    html.Div([
+        dcc.Graph(id="graph1"),
+    ]),
+
+    html.Div(children=[
+        dcc.Graph(id="table")
+    ]),
+    
     dcc.Store(id='previous_click'),
 ])
+
 
 @app.callback(Output('graph1', 'figure'), 
                 Output('table', 'figure'),

@@ -94,7 +94,11 @@ def display_table(location=None):
 
         fig.update_layout(
             title = {
-                'text': f'Universities in {location}'
+                'text': f'QS 2020 university ranking in {location}'
         })
 
     return fig
+
+# 1. Layout
+# 2. Some errors in the university names
+# 3. University search field
