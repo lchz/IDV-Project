@@ -35,8 +35,6 @@ def display_map(click_country=None, z=0):
     if click_country:
         highlighted = go.Choropleth(
             locationmode='country names',
-            # z = df['Count'],
-            # z = [0],
             z = [z],
             locations=[click_country],
             hovertemplate = df[df['Country']==click_country]['Hover_text'],
@@ -86,7 +84,7 @@ def display_table(location=None):
                                         align=['center','center','center','left','center','center'],
                                         fill_color='lightsteelblue'),
                             cells=dict(
-                                values=[list(range(length+1))[1:],info['Rank in 2020'],info['Rank in 2019'], info['Institution Name'], info['Country'], info['Overall Score']],
+                                values=[list(range(length+1))[1:],info['Rank in 2020'], info['Rank in 2019'], info['Institution Name'], info['Country'], info['Overall Score']],
                                         align=['center','center','center','left','center','center'],
                                         fill_color=[[rowColor1, rowColor2]*ceil(length/2)]
                                 ))
@@ -98,7 +96,3 @@ def display_table(location=None):
         })
 
     return fig
-
-# 1. Layout
-# 2. Some errors in the university names
-# 3. University search field
